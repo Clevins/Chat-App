@@ -11,7 +11,7 @@ import {
   setDoc,
   Timestamp,
 } from "firebase/firestore";
-import { FC, useState } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 import { useFirestore, useFirestoreCollectionData } from "reactfire";
 import Message from "../Message/Message";
 
@@ -47,9 +47,22 @@ const Messages: FC<MessagesProps> = ({ activeUser, currentUser }) => {
   );
   const { data: messages } = useFirestoreCollectionData(messageQuery);
 
+  const messagesEndRef = useRef<null | HTMLDivElement>(null);
+
+  const scrollToBottom = () => {
+    if (messagesEndRef.current) {
+      messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]);
+
   async function handleSubmit(e: any) {
     e.preventDefault();
     await sendMessage();
+    setNewMessage("");
   }
 
   const sendMessage = async () => {
@@ -90,12 +103,14 @@ const Messages: FC<MessagesProps> = ({ activeUser, currentUser }) => {
               />
             );
           })}
+          <div ref={messagesEndRef} />
         </div>
 
         <form onSubmit={handleSubmit}>
           <input
             name="newMessage"
             type="text"
+            value={newMessage}
             className={styles.message__input}
             placeholder="Write Message..."
             onChange={(e) => setNewMessage(e.target.value)}
