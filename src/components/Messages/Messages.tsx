@@ -77,7 +77,6 @@ const Messages: FC<MessagesProps> = ({ activeUser, currentUser }) => {
             onChange={(e) => setNewMessage(e.target.value)}
           />
           <button
-            type="submit"
             className={styles.messages__submit}
             onClick={() => handleSubmit}
           >
