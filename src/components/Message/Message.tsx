@@ -1,15 +1,9 @@
-import { User } from "firebase/auth";
-import { doc, DocumentData } from "firebase/firestore";
+import { doc } from "firebase/firestore";
 import { FC } from "react";
 import { useFirestore, useFirestoreDocData } from "reactfire";
+import { MessageProps } from "../../lib/types";
 
 import styles from "./Message.module.css";
-
-type MessageProps = {
-  currentUser: User;
-  activeUser: DocumentData;
-  message: DocumentData;
-};
 
 const Message: FC<MessageProps> = ({ currentUser, activeUser, message }) => {
   const timestamp = new Date(

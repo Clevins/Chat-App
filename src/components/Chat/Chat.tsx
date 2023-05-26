@@ -2,10 +2,10 @@ import { FC, useState } from "react";
 
 import { DocumentData } from "firebase/firestore";
 import { useSigninCheck, useUser } from "reactfire";
+import { isEmptyObject } from "../../lib/isEmptyObject";
 
 import Login from "../Login";
 import Header from "../Header";
-
 import Users from "../Users";
 import Messages from "../Messages";
 
@@ -16,8 +16,6 @@ const Chat: FC = () => {
   const { data: user } = useUser();
 
   const [activeUser, setActiveUser] = useState<DocumentData>({});
-
-  console.log(activeUser);
 
   if (status === "loading") {
     return <span>loading...</span>;
@@ -35,7 +33,7 @@ const Chat: FC = () => {
             setActiveUser={setActiveUser}
           />
 
-          {Object.keys(activeUser).length !== 0 && (
+          {!isEmptyObject(activeUser) && (
             <Messages currentUser={user} activeUser={activeUser} />
           )}
         </div>

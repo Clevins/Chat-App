@@ -1,30 +1,25 @@
-import { User as UserType } from "firebase/auth";
-import { collection, query, where, DocumentData } from "firebase/firestore";
-import { FC, SetStateAction, useEffect } from "react";
+import { FC, useEffect } from "react";
 import { useFirestore, useFirestoreCollectionData } from "reactfire";
+import { collection } from "firebase/firestore";
+import { UsersProps } from "../../lib/types";
+import { getNotCurrentUsersQuery } from "../../lib/firebaseQueries";
+import { isEmptyObject } from "../../lib/isEmptyObject";
+
 import User from "../User";
 
 import styles from "./Users.module.css";
-
-type UsersProps = {
-  currentUser: UserType;
-  activeUser: DocumentData;
-  setActiveUser: React.Dispatch<SetStateAction<DocumentData>>;
-};
 
 const Users: FC<UsersProps> = ({ currentUser, setActiveUser, activeUser }) => {
   const firestore = useFirestore();
 
   const usersCollection = collection(firestore, "users");
-  const usersQuery = query(
-    usersCollection,
-    where("uid", "!=", currentUser.uid)
-  );
+  const usersQuery = getNotCurrentUsersQuery(usersCollection, currentUser.uid);
   const { data: users } = useFirestoreCollectionData(usersQuery);
 
   useEffect(() => {
-    if (Object.keys(activeUser).length == 0 && users) {
-      setActiveUser(users[0]);
+    if (isEmptyObject(activeUser) && users) {
+      const defaultActiveUser = users[0];
+      setActiveUser(defaultActiveUser);
     }
   }, [activeUser, setActiveUser, users]);
 
@@ -32,7 +27,6 @@ const Users: FC<UsersProps> = ({ currentUser, setActiveUser, activeUser }) => {
     return (
       <div className={styles.users}>
         <div className={styles.users__header}>Users</div>
-
         {users.map((user, index) => {
           return <User key={index} setActiveUser={setActiveUser} user={user} />;
         })}
