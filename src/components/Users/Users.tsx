@@ -33,8 +33,8 @@ const Users: FC<UsersProps> = ({ currentUser, setActiveUser, activeUser }) => {
       <div className={styles.users}>
         <div className={styles.users__header}>Users</div>
 
-        {users.map((user) => {
-          return <User setActiveUser={setActiveUser} user={user} />;
+        {users.map((user, index) => {
+          return <User key={index} setActiveUser={setActiveUser} user={user} />;
         })}
       </div>
     );

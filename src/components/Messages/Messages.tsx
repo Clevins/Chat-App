@@ -94,9 +94,10 @@ const Messages: FC<MessagesProps> = ({ activeUser, currentUser }) => {
           </div>
         </div>
         <div className={styles.messages__container}>
-          {messages.map((message) => {
+          {messages.map((message, index) => {
             return (
               <Message
+                key={index}
                 message={message}
                 currentUser={currentUser}
                 activeUser={activeUser}
