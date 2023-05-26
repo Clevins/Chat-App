@@ -47,7 +47,7 @@ const Messages: FC<MessagesProps> = ({ activeUser, currentUser }) => {
 
           <div className={styles.user__info}>
             <div className={styles.user__photo}>
-              <img src={activeUser.photoURL} />
+              <img src={activeUser.photoURL} alt="Profile Picture" />
             </div>
 
             <div className={styles.user__name}>{activeUser.displayName}</div>

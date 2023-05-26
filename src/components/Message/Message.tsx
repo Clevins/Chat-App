@@ -30,7 +30,7 @@ const Message: FC<MessageProps> = ({ currentUser, activeUser, message }) => {
   return (
     <div className={`${styles.message} ${messageFlexStyle}`}>
       <div className={styles.message__photo}>
-        <img src={profilePicture} />
+        <img src={profilePicture} alt="Profile Picture" />
       </div>
       <div className={styles.message__container}>
         <div className={styles.message__text}>

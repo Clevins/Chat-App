@@ -35,7 +35,11 @@ const Login: FC = () => {
   return (
     <div className={styles.login}>
       <div className={styles.login__card}>
-        <img src={googgleIcon} className={styles.login__icon} />
+        <img
+          src={googgleIcon}
+          className={styles.login__icon}
+          alt="Google Icon"
+        />
 
         <button onClick={logIn} className={styles.login__button}>
           Sign In With Google

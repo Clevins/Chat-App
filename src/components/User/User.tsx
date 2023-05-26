@@ -10,12 +10,12 @@ const User: FC<UserProps> = ({ user, setActiveUser }) => {
       <div className={styles.user}>
         <div className={styles.user__info}>
           <div className={styles.user__photo}>
-            <img src={user.photoURL} />
+            <img src={user.photoURL} alt="Profile Picture" />
           </div>
           <div className={styles.user__name}>{user.displayName}</div>
         </div>
         <div className={styles.user__icon}>
-          <img src={icon} />
+          <img src={icon} alt="Arrow Icon" />
         </div>
       </div>
     </button>
