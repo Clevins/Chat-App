@@ -6,6 +6,7 @@ import { auth, provider } from "../../firebase-config";
 import googgleIcon from "../../../public/assets/icons8-google-96.png";
 
 import styles from "./Login.module.css";
+import Header from "../Header";
 
 const Login: FC = () => {
   const firestore = useFirestore();
@@ -34,6 +35,8 @@ const Login: FC = () => {
 
   return (
     <div className={styles.login}>
+      <Header />
+
       <div className={styles.login__card}>
         <img
           src={googgleIcon}

@@ -14,5 +14,5 @@
 }
 
 .login__button {
-  @apply bg-blue-600 text-white mx-auto w-52 h-12 text-xl rounded-2xl shadow-lg;
+  @apply bg-[#2F80ED] text-white mx-auto w-52 h-12 text-xl rounded-2xl shadow-lg;
 }
