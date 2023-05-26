@@ -22,5 +22,5 @@
 }
 
 .message__text {
-  @apply bg-blue-600 p-4 rounded-lg text-white text-xl;
+  @apply bg-[#2F80ED] p-4 rounded-lg text-white text-xl;
 }

@@ -67,7 +67,7 @@ const Messages: FC<MessagesProps> = ({ activeUser, currentUser }) => {
           <div ref={messagesEndRef} />
         </div>
 
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className={styles.messages__form}>
           <input
             name="newMessage"
             type="text"
@@ -76,6 +76,13 @@ const Messages: FC<MessagesProps> = ({ activeUser, currentUser }) => {
             placeholder="Write Message..."
             onChange={(e) => setNewMessage(e.target.value)}
           />
+          <button
+            type="submit"
+            className={styles.messages__submit}
+            onClick={() => handleSubmit}
+          >
+            Send
+          </button>
         </form>
       </div>
     );

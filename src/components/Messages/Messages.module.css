@@ -32,6 +32,14 @@
   @apply flex flex-col space-y-10 overflow-y-scroll h-[60vh];
 }
 
+.messages__form {
+  @apply flex flex-row;
+}
+
+.messages__submit {
+  @apply px-4 ml-4 bg-[#2F80ED] rounded-xl text-xl text-white;
+}
+
 .message__input {
   @apply w-full bg-transparent border-2 rounded-md h-12;
   @apply focus-visible:outline-none active:outline-none active:border-[#A5A6F6]  border-[#A5A6F6] transition-colors ease-in-out duration-200 focus:text-black;
