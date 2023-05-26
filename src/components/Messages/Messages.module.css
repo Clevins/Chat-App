@@ -1,0 +1,38 @@
+.messages {
+  @apply border border-opacity-60 lg:w-4/5 w-full border-[#E1E2FF] rounded-xl shadow-md;
+  @apply flex flex-col justify-start space-y-4;
+  @apply p-5;
+}
+
+.messages__header {
+  @apply flex flex-row justify-between;
+}
+
+.messages__title {
+  @apply font-sans font-normal text-xl;
+}
+
+.user__info {
+  @apply flex flex-row items-center space-x-4;
+}
+
+.user__photo {
+  @apply h-10 w-10;
+}
+
+.user__photo img {
+  @apply rounded-full;
+}
+
+.user__name {
+  @apply text-lg font-bold;
+}
+
+.messages__container {
+  @apply flex flex-col space-y-10 overflow-y-scroll h-[60vh];
+}
+
+.message__input {
+  @apply w-full bg-transparent border-2 rounded-md h-12;
+  @apply focus-visible:outline-none active:outline-none active:border-[#A5A6F6]  border-[#A5A6F6] transition-colors ease-in-out duration-200 focus:text-black;
+}

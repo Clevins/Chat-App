@@ -1,0 +1,9 @@
+.users {
+  @apply lg:w-1/5 w-full border border-opacity-60 border-[#E1E2FF] rounded-xl shadow-md;
+  @apply flex flex-col justify-start space-y-4;
+  @apply p-5;
+}
+
+.users__header {
+  @apply font-sans font-normal text-xl;
+}

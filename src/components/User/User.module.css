@@ -1,0 +1,23 @@
+.user {
+  @apply flex flex-row justify-between bg-gray-50 p-5 rounded-xl items-center;
+}
+
+.user__info {
+  @apply flex flex-row items-center space-x-4;
+}
+
+.user__photo {
+  @apply h-10 w-10;
+}
+
+.user__photo img {
+  @apply rounded-full;
+}
+
+.user__name {
+  @apply text-lg font-bold;
+}
+
+.user__icon {
+  @apply h-8 w-8;
+}

@@ -1,0 +1,26 @@
+.message {
+  @apply flex;
+}
+
+.message--activeUser {
+  @apply self-end flex-row-reverse;
+}
+.message--currentUser {
+  @apply self-start flex-row;
+}
+
+.message__photo {
+  @apply h-10 w-10 mx-4;
+}
+
+.message__photo img {
+  @apply rounded-full;
+}
+
+.message__container {
+  @apply flex flex-col space-y-4 self-end w-3/4;
+}
+
+.message__text {
+  @apply bg-blue-600 p-4 rounded-lg text-white text-xl;
+}
